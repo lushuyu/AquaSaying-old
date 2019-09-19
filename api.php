@@ -1,24 +1,24 @@
 <?php
-// ´æ´¢Êý¾ÝµÄÎÄ¼þ
-$filename = 'hitokoto.txt';       
+// å­˜å‚¨æ•°æ®çš„æ–‡ä»¶
+$filename = 'aqoursaying.txt';       
   
-// Ö¸¶¨Ò³Ãæ±àÂë
+// æŒ‡å®šé¡µé¢ç¼–ç 
 header('Content-type: text/html; charset=utf-8');
   
 if(!file_exists($filename)) {
-    die($filename . ' Êý¾ÝÎÄ¼þ²»´æÔÚ');
+    die($filename . ' æ•°æ®æ–‡ä»¶ä¸å­˜åœ¨');
 }
   
-// ¶ÁÈ¡Õû¸öÊý¾ÝÎÄ¼þ
+// è¯»å–æ•´ä¸ªæ•°æ®æ–‡ä»¶
 $data = file_get_contents($filename);
   
-// °´»»ÐÐ·û·Ö¸î³ÉÊý×é
+// æŒ‰æ¢è¡Œç¬¦åˆ†å‰²æˆæ•°ç»„
 $data = explode(PHP_EOL, $data);
   
-// Ëæ»ú»ñÈ¡Ò»ÐÐË÷Òý
+// éšæœºèŽ·å–ä¸€è¡Œç´¢å¼•
 $result = $data[array_rand($data)];
   
-// È¥³ý¶àÓàµÄ»»ÐÐ·û£¨±£ÏÕÆð¼û£©
+// åŽ»é™¤å¤šä½™çš„æ¢è¡Œç¬¦ï¼ˆä¿é™©èµ·è§ï¼‰
 $result = str_replace(array("\r","\n","\r\n"), '', $result);
   
 echo "document.write('" . $result ."');";
